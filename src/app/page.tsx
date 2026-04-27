@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Bookmark, Building2, Compass, FileText, Globe2, Image as ImageIcon, LayoutGrid, MapPin, ShieldCheck, Tag, User } from 'lucide-react'
 import { ContentImage } from '@/components/shared/content-image'
 import { NavbarShell } from '@/components/shared/navbar-shell'
-import { Footer } from '@/components/shared/footer'
+import { PressReleaseFooter } from '@/components/shared/press-release-footer'
 import { SchemaJsonLd } from '@/components/seo/schema-jsonld'
 import { TaskPostCard } from '@/components/shared/task-post-card'
 import { SITE_CONFIG, type TaskKey } from '@/lib/site-config'
@@ -15,6 +15,7 @@ import { getProductKind, type ProductKind } from '@/design/factory/get-product-k
 import type { SitePost } from '@/lib/site-connector'
 import { getHomeEditorialMockPosts, mergeEditorialPostsForHome } from '@/lib/home-editorial-mock'
 import { HOME_PAGE_OVERRIDE_ENABLED, HomePageOverride } from '@/overrides/home-page'
+import { PressReleaseHome } from '@/components/homepage/press-release-home'
 
 export const revalidate = 300
 
@@ -658,26 +659,8 @@ export default async function HomePage() {
     <div className="min-h-screen bg-background text-foreground">
       <NavbarShell />
       <SchemaJsonLd data={schemaData} />
-      {productKind === 'directory' ? (
-        <DirectoryHome
-          primaryTask={primaryTask}
-          enabledTasks={enabledTasks}
-          listingPosts={listingPosts}
-          classifiedPosts={classifiedPosts}
-          profilePosts={profilePosts}
-          brandPack={recipe.brandPack}
-        />
-      ) : null}
-      {productKind === 'editorial' ? (
-        <EditorialHome primaryTask={primaryTask} posts={editorialPosts} supportTasks={supportTasks} />
-      ) : null}
-      {productKind === 'visual' ? (
-        <VisualHome primaryTask={primaryTask} imagePosts={imagePosts} profilePosts={profilePosts} articlePosts={articlePosts} />
-      ) : null}
-      {productKind === 'curation' ? (
-        <CurationHome primaryTask={primaryTask} bookmarkPosts={bookmarkPosts} profilePosts={profilePosts} articlePosts={articlePosts} />
-      ) : null}
-      <Footer />
+      <PressReleaseHome primaryTask={primaryTask} posts={editorialPosts} supportTasks={supportTasks} />
+      <PressReleaseFooter />
     </div>
   )
 }
