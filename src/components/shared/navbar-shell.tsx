@@ -1,12 +1,12 @@
 "use client";
 
 import { Suspense } from "react";
-import { Navbar } from "@/components/shared/navbar";
+import { PressReleaseNavbar } from "@/components/shared/press-release-navbar";
 
 export function NavbarShell() {
   return (
     <Suspense fallback={null}>
-      <Navbar />
+      <PressReleaseNavbar />
     </Suspense>
   );
 }

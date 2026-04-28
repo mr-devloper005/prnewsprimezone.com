@@ -2,10 +2,10 @@ import type { TaskKey } from '@/lib/site-config'
 
 export const siteContent = {
   navbar: {
-    tagline: 'Independent news desk',
+    tagline: 'Press Release Distribution',
   },
   footer: {
-    tagline: 'Simple publishing for press-style updates',
+    tagline: 'Global Media Distribution Network',
   },
   hero: {
     badge: 'Latest updates',
@@ -29,13 +29,13 @@ export const siteContent = {
   },
   home: {
     metadata: {
-      title: 'Latest updates and newsroom posts',
+      title: 'Press Release Distribution - PR News Prime Zone',
       description:
-        'Read the latest updates, announcements, and stories through a simple archive-first publishing experience.',
-      openGraphTitle: 'Latest updates and newsroom posts',
+        'Distribute your press releases to thousands of media outlets. Professional press release distribution services for businesses of all sizes.',
+      openGraphTitle: 'Press Release Distribution - PR News Prime Zone',
       openGraphDescription:
-        'A simple publishing template for updates, announcements, and readable article pages.',
-      keywords: ['newsroom posts', 'latest updates', 'announcements', 'press articles'],
+        'Get your news distributed to thousands of media outlets, journalists, and newsrooms worldwide.',
+      keywords: ['press release distribution', 'media outreach', 'news distribution', 'public relations'],
     },
     introBadge: 'About',
     introTitle: 'A quiet publishing template made for regular updates.',
@@ -80,8 +80,8 @@ export const siteContent = {
 
 export const taskPageMetadata: Record<Exclude<TaskKey, 'comment' | 'org' | 'social'>, { title: string; description: string }> = {
   article: {
-    title: 'Articles',
-    description: 'Read the latest posts and long-form updates.',
+    title: 'Press Releases',
+    description: 'Browse and read the latest press releases and news updates distributed through our network.',
   },
   listing: {
     title: 'Listings',
