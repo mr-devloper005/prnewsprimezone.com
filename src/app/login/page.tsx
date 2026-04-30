@@ -1,104 +1,166 @@
-import Link from 'next/link'
-import { Bookmark, Building2, FileText, Image as ImageIcon, Sparkles } from 'lucide-react'
-import { NavbarShell } from '@/components/shared/navbar-shell'
-import { Footer } from '@/components/shared/footer'
-import { getFactoryState } from '@/design/factory/get-factory-state'
-import { getProductKind } from '@/design/factory/get-product-kind'
-import { LOGIN_PAGE_OVERRIDE_ENABLED, LoginPageOverride } from '@/overrides/login-page'
+'use client'
 
-function getLoginConfig(kind: ReturnType<typeof getProductKind>) {
-  if (kind === 'directory') {
-    return {
-      shell: 'bg-[#f8fbff] text-slate-950',
-      panel: 'border border-slate-200 bg-white',
-      side: 'border border-slate-200 bg-slate-50',
-      muted: 'text-slate-600',
-      action: 'bg-slate-950 text-white hover:bg-slate-800',
-      icon: Building2,
-      title: 'Access your business dashboard',
-      body: 'Manage listings, verification details, contact info, and local discovery surfaces from one place.',
-    }
-  }
-  if (kind === 'editorial') {
-    return {
-      shell: 'bg-[#fbf6ee] text-[#241711]',
-      panel: 'border border-[#dcc8b7] bg-[#fffdfa]',
-      side: 'border border-[#e6d6c8] bg-[#fff4e8]',
-      muted: 'text-[#6e5547]',
-      action: 'bg-[#241711] text-[#fff1e2] hover:bg-[#3a241b]',
-      icon: FileText,
-      title: 'Sign in to your publication workspace',
-      body: 'Draft, review, and publish long-form work with the calmer reading system intact.',
-    }
-  }
-  if (kind === 'visual') {
-    return {
-      shell: 'bg-[#07101f] text-white',
-      panel: 'border border-white/10 bg-white/6',
-      side: 'border border-white/10 bg-white/5',
-      muted: 'text-slate-300',
-      action: 'bg-[#8df0c8] text-[#07111f] hover:bg-[#77dfb8]',
-      icon: ImageIcon,
-      title: 'Enter the creator workspace',
-      body: 'Open your visual feed, creator profile, and publishing tools without dropping into a generic admin shell.',
-    }
-  }
-  return {
-    shell: 'bg-[#f7f1ea] text-[#261811]',
-    panel: 'border border-[#ddcdbd] bg-[#fffaf4]',
-    side: 'border border-[#e8dbce] bg-[#f3e8db]',
-    muted: 'text-[#71574a]',
-    action: 'bg-[#5b2b3b] text-[#fff0f5] hover:bg-[#74364b]',
-    icon: Bookmark,
-    title: 'Open your curated collections',
-    body: 'Manage saved resources, collection notes, and curator identity from a calmer workspace.',
-  }
-}
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { Mail, Lock, ArrowRight, Eye, EyeOff, FileText, Users, ShieldCheck } from 'lucide-react'
+import { NavbarShell } from '@/components/shared/navbar-shell'
+import { PressReleaseFooter } from '@/components/shared/press-release-footer'
+import { buildPageMetadata } from '@/lib/seo'
+import { useState } from 'react'
 
 export default function LoginPage() {
-  if (LOGIN_PAGE_OVERRIDE_ENABLED) {
-    return <LoginPageOverride />
-  }
-
-  const { recipe } = getFactoryState()
-  const productKind = getProductKind(recipe)
-  const config = getLoginConfig(productKind)
-  const Icon = config.icon
+  const [showPassword, setShowPassword] = useState(false)
 
   return (
-    <div className={`min-h-screen ${config.shell}`}>
+    <div className="min-h-screen bg-gradient-to-br from-[#F5E8E4] via-white to-[#F5C7A9]/20">
       <NavbarShell />
-      <main className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <section className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-stretch">
-          <div className={`rounded-[2rem] p-8 ${config.side}`}>
-            <Icon className="h-8 w-8" />
-            <h1 className="mt-5 text-4xl font-semibold tracking-[-0.05em]">{config.title}</h1>
-            <p className={`mt-5 text-sm leading-8 ${config.muted}`}>{config.body}</p>
-            <div className="mt-8 grid gap-4">
-              {['Cleaner product-specific workflows', 'Palette and layout matched to the site family', 'Fewer repeated admin patterns'].map((item) => (
-                <div key={item} className="rounded-[1.5rem] border border-current/10 px-4 py-4 text-sm">{item}</div>
-              ))}
+      
+      <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
+          {/* Left Side - Welcome Content */}
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tight text-[#411530] sm:text-5xl lg:text-6xl">
+                Welcome Back
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Sign in to your account to manage press releases, track analytics, and distribute your news to thousands of media outlets.
+              </p>
+            </div>
+
+            {/* Features */}
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="rounded-full bg-[#F5E8E4] p-3">
+                  <FileText className="h-6 w-6 text-[#411530]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-[#411530]">Manage Press Releases</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Create, edit, and distribute press releases from your dashboard
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="rounded-full bg-[#F5E8E4] p-3">
+                  <Users className="h-6 w-6 text-[#411530]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-[#411530]">Track Performance</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Monitor analytics and distribution results in real-time
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="rounded-full bg-[#F5E8E4] p-3">
+                  <ShieldCheck className="h-6 w-6 text-[#411530]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-[#411530]">Secure Platform</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Enterprise-grade security for your press release data
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className={`rounded-[2rem] p-8 ${config.panel}`}>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-70">Welcome back</p>
-            <form className="mt-6 grid gap-4">
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Email address" />
-              <input className="h-12 rounded-xl border border-current/10 bg-transparent px-4 text-sm" placeholder="Password" type="password" />
-              <button type="submit" className={`inline-flex h-12 items-center justify-center rounded-full px-6 text-sm font-semibold ${config.action}`}>Sign in</button>
-            </form>
-            <div className={`mt-6 flex items-center justify-between text-sm ${config.muted}`}>
-              <Link href="/forgot-password" className="hover:underline">Forgot password?</Link>
-              <Link href="/register" className="inline-flex items-center gap-2 font-semibold hover:underline">
-                <Sparkles className="h-4 w-4" />
-                Create account
-              </Link>
+          {/* Right Side - Login Form */}
+          <div className="lg:pl-12">
+            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
+              <div className="mb-8">
+                <h2 className="text-2xl font-bold text-[#411530]">Sign In</h2>
+                <p className="mt-2 text-sm text-gray-600">
+                  Enter your credentials to access your account
+                </p>
+              </div>
+
+              <form className="space-y-6">
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    Email Address
+                  </label>
+                  <div className="mt-2 relative">
+                    <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      className="w-full rounded-lg border border-gray-300 bg-white pl-10 pr-4 py-3 text-sm focus:border-[#411530] focus:outline-none focus:ring-1 focus:ring-[#411530]"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    Password
+                  </label>
+                  <div className="mt-2 relative">
+                    <Lock className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                    <input
+                      id="password"
+                      name="password"
+                      type={showPassword ? 'text' : 'password'}
+                      required
+                      className="w-full rounded-lg border border-gray-300 bg-white pl-10 pr-12 py-3 text-sm focus:border-[#411530] focus:outline-none focus:ring-1 focus:ring-[#411530]"
+                      placeholder="Enter your password"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    >
+                      {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2 text-sm text-gray-600">
+                    <input
+                      type="checkbox"
+                      className="rounded border-gray-300 bg-white text-[#411530] focus:ring-[#411530]"
+                    />
+                    Remember me
+                  </label>
+                  <Link
+                    href="/forgot-password"
+                    className="text-sm font-medium text-[#D1512D] hover:text-[#B84124]"
+                  >
+                    Forgot password?
+                  </Link>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full rounded-full bg-[#411530] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#2a0f20] focus:outline-none focus:ring-2 focus:ring-[#411530] focus:ring-offset-2"
+                >
+                  Sign In
+                </button>
+              </form>
+
+              <div className="mt-8 text-center">
+                <p className="text-sm text-gray-600">
+                  Don't have an account?{' '}
+                  <Link
+                    href="/register"
+                    className="font-medium text-[#D1512D] hover:text-[#B84124]"
+                  >
+                    Create an account
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
       </main>
-      <Footer />
+
+      <PressReleaseFooter />
     </div>
   )
 }
