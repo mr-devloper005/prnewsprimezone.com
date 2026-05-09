@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FileText, Building2, LayoutGrid, Tag, Github, Twitter, Linkedin, Image as ImageIcon, User, ArrowRight, Sparkles, Mail, Phone, MapPin } from 'lucide-react'
+import { FileText, Building2, LayoutGrid, Tag, Github, Twitter, Linkedin, Image as ImageIcon, User, ArrowRight, Sparkles } from 'lucide-react'
 import { SITE_CONFIG, type TaskKey } from '@/lib/site-config'
 import { siteContent } from '@/config/site.content'
 
@@ -21,26 +21,18 @@ const footerLinks = {
   services: [
     { name: 'Press Release Distribution', href: '/articles' },
     { name: 'Media Outreach', href: '/contact' },
-    { name: 'Analytics & Reporting', href: '/pricing' },
-    { name: 'SEO Optimization', href: '/pricing' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Blog', href: '/blog' },
   ],
   resources: [
     { name: 'Help Center', href: '/help' },
-    { name: 'Pricing', href: '/pricing' },
-    { name: 'Press Guidelines', href: '/help' },
-    { name: 'API Docs', href: '/developers' },
   ],
   legal: [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'Cookie Policy', href: '/cookies' },
-    { name: 'Disclaimer', href: '/licenses' },
   ],
 }
 
@@ -60,9 +52,6 @@ export function PressReleaseFooter() {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-white/10 p-1.5">
-                <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} width="48" height="48" className="h-full w-full object-contain" />
-              </div>
               <div>
                 <h3 className="text-xl font-bold">{SITE_CONFIG.name}</h3>
                 <p className="text-xs uppercase tracking-[0.24em] text-[#F5C7A9]">Press Release Distribution</p>
@@ -71,20 +60,6 @@ export function PressReleaseFooter() {
             <p className="text-sm leading-6 text-white/80">
               {SITE_CONFIG.description}
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <Mail className="h-4 w-4 text-[#F5C7A9]" />
-                <span>contact@prnewsprimezone.com</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <Phone className="h-4 w-4 text-[#F5C7A9]" />
-                <span>1-800-PRESS-RELEASE</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-white/80">
-                <MapPin className="h-4 w-4 text-[#F5C7A9]" />
-                <span>Global Distribution Network</span>
-              </div>
-            </div>
           </div>
 
           {/* Services */}

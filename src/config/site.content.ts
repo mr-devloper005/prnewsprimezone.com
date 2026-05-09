@@ -2,7 +2,7 @@ import type { TaskKey } from '@/lib/site-config'
 
 export const siteContent = {
   navbar: {
-    tagline: 'Press Release Distribution',
+    tagline: 'Release Media Distribution',
   },
   footer: {
     tagline: 'Global Media Distribution Network',
