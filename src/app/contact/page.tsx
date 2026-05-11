@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Mail, Phone, MapPin, Clock, Send, Building2, Users, Headphones } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { PressReleaseFooter } from '@/components/shared/press-release-footer'
 import { buildPageMetadata } from '@/lib/seo'
@@ -42,75 +42,6 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Contact Cards */}
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-full bg-[#F5E8E4] p-3">
-                    <Mail className="h-6 w-6 text-[#411530]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#411530]">Email Us</h3>
-                    <p className="mt-1 text-gray-600">support@prnewsprimezone.com</p>
-                    <p className="mt-2 text-sm text-gray-500">
-                      For general inquiries, support, and partnership opportunities
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-full bg-[#F5E8E4] p-3">
-                    <Phone className="h-6 w-6 text-[#411530]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#411530]">Call Us</h3>
-                    <p className="mt-1 text-gray-600">1-800-PRESS-RELEASE</p>
-                    <p className="mt-2 text-sm text-gray-500">
-                      Monday - Friday: 9:00 AM - 6:00 PM EST
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-full bg-[#F5E8E4] p-3">
-                    <MapPin className="h-6 w-6 text-[#411530]" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-[#411530]">Office Location</h3>
-                    <p className="mt-1 text-gray-600">Global Distribution Network</p>
-                    <p className="mt-2 text-sm text-gray-500">
-                      Serving clients worldwide with digital press release distribution
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Business Hours */}
-            <div className="rounded-2xl bg-[#411530] p-6 text-white">
-              <h3 className="text-lg font-semibold flex items-center gap-2">
-                <Clock className="h-5 w-5" />
-                Business Hours
-              </h3>
-              <div className="mt-4 space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 6:00 PM EST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span>10:00 AM - 4:00 PM EST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span>Closed</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}
