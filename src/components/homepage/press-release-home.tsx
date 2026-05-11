@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Globe, Headphones, TrendingUp, Users, FileText, Clock, Star } from 'lucide-react'
-import { ContentImage } from '@/components/shared/content-image'
 import { SITE_CONFIG, type TaskKey } from '@/lib/site-config'
 import type { SitePost } from '@/lib/site-connector'
+import { TaskPostCard } from '@/components/shared/task-post-card'
 
 interface PressReleaseHomeProps {
   primaryTask?: any
@@ -35,12 +35,6 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
                 >
                   Submit Press Release
                   <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link 
-                  href="/pricing"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#411530] bg-white px-8 py-4 text-sm font-semibold text-[#411530] transition-all hover:bg-[#F5E8E4]"
-                >
-                  View Pricing
                 </Link>
               </div>
             </div>
@@ -87,31 +81,31 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
             <div>
               <h2 className="text-3xl font-bold text-[#411530] sm:text-4xl">
-                Competitive Pricing
+                Nationwide Media Distribution
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Get the best value for your press release distribution. Our pricing plans are designed to fit businesses of all sizes, from startups to enterprises.
+                Your press release is distributed to thousands of verified journalists, editors, and newsrooms across print, digital, and broadcast media — all in one submission.
               </p>
               <ul className="mt-6 space-y-3">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Affordable distribution packages</span>
+                  <span className="text-gray-700">10,000+ media outlets covered</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">No hidden fees</span>
+                  <span className="text-gray-700">Industry-specific targeting</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Flexible payment options</span>
+                  <span className="text-gray-700">Regional and national reach</span>
                 </li>
               </ul>
             </div>
             <div className="relative h-64 rounded-2xl bg-gradient-to-br from-[#F5C7A9] to-[#F5E8E4] p-8 shadow-lg">
               <div className="flex h-full items-center justify-center">
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-[#411530]">$</div>
-                  <p className="mt-2 text-sm font-medium text-[#411530]">Best Value Pricing</p>
+                  <Globe className="mx-auto h-16 w-16 text-[#411530]" />
+                  <p className="mt-3 text-sm font-medium text-[#411530]">Global Media Network</p>
                 </div>
               </div>
             </div>
@@ -126,23 +120,23 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
             </div>
             <div>
               <h2 className="text-3xl font-bold text-[#411530] sm:text-4xl">
-                Value Driven Approach
+                Real-Time Coverage Tracking
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                We focus on delivering real value to our clients. Our distribution network and expertise ensure your press releases reach the right audience at the right time.
+                Monitor exactly where your press release is picked up. Our analytics dashboard gives you live data on media pickups, impressions, and audience reach.
               </p>
               <ul className="mt-6 space-y-3">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Targeted media outreach</span>
+                  <span className="text-gray-700">Live pickup notifications</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Comprehensive analytics</span>
+                  <span className="text-gray-700">Audience reach and impressions</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Measurable results</span>
+                  <span className="text-gray-700">Downloadable coverage reports</span>
                 </li>
               </ul>
             </div>
@@ -152,23 +146,23 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
           <div className="mt-20 grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
             <div>
               <h2 className="text-3xl font-bold text-[#411530] sm:text-4xl">
-                Caring Customer Service
+                Editorial Review & Compliance
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                Our dedicated support team is here to help you every step of the way. From drafting your press release to distribution and beyond.
+                Every press release is reviewed by our editorial team before distribution to ensure it meets professional journalism standards and maximizes media pickup rates.
               </p>
               <ul className="mt-6 space-y-3">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">24/7 customer support</span>
+                  <span className="text-gray-700">Professional editorial review</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Expert guidance</span>
+                  <span className="text-gray-700">AP style formatting</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Personal assistance</span>
+                  <span className="text-gray-700">Compliance and accuracy checks</span>
                 </li>
               </ul>
             </div>
@@ -188,23 +182,23 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
             </div>
             <div>
               <h2 className="text-3xl font-bold text-[#411530] sm:text-4xl">
-                Industry Excellence
+                Verified Journalist Network
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                With years of experience in press release distribution, we've built relationships with thousands of media outlets and journalists worldwide.
+                We maintain direct relationships with thousands of active journalists and editors across every major beat — business, tech, health, finance, entertainment, and more.
               </p>
               <ul className="mt-6 space-y-3">
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Extensive media network</span>
+                  <span className="text-gray-700">5,000+ verified journalists</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Proven track record</span>
+                  <span className="text-gray-700">Beat-specific targeting</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-[#D1512D]" />
-                  <span className="text-gray-700">Industry recognition</span>
+                  <span className="text-gray-700">Direct inbox delivery</span>
                 </li>
               </ul>
             </div>
@@ -212,86 +206,59 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Why Choose Us Section */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-[#411530] sm:text-4xl">
-              Pricing Plans To Choose From
+              Why Media Professionals Trust Us
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Select the perfect plan for your press release distribution needs
+              Trusted by thousands of PR professionals, agencies, and brands worldwide
             </p>
           </div>
-          
-          <div className="mt-12 grid gap-8 lg:grid-cols-5">
+
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                name: 'Basic',
-                price: '$99',
-                color: 'from-purple-500 to-purple-600',
-                features: ['1 Press Release', 'Basic Distribution', '7-Day Support'],
+                title: 'Massive Media Reach',
+                description: 'Your press release reaches over 10,000 journalists, newsrooms, and media outlets across print, digital, and broadcast channels.',
+                icon: Globe,
               },
               {
-                name: 'Professional',
-                price: '$199',
-                color: 'from-red-500 to-red-600',
-                features: ['5 Press Releases', 'Extended Distribution', 'Priority Support', 'Analytics'],
-                popular: true,
+                title: 'Fast Turnaround',
+                description: 'Same-day distribution available. Get your news in front of the right people within hours of submission.',
+                icon: Clock,
               },
               {
-                name: 'Business',
-                price: '$299',
-                color: 'from-orange-500 to-orange-600',
-                features: ['10 Press Releases', 'Premium Distribution', '24/7 Support', 'Advanced Analytics', 'SEO Optimization'],
+                title: 'Verified Journalist Network',
+                description: 'Direct access to a curated database of verified journalists and editors actively covering your industry.',
+                icon: Users,
               },
               {
-                name: 'Enterprise',
-                price: '$499',
-                color: 'from-blue-500 to-blue-600',
-                features: ['25 Press Releases', 'Global Distribution', 'Dedicated Support', 'Custom Analytics', 'White Label Options'],
+                title: 'Performance Tracking',
+                description: 'Real-time analytics showing pickups, impressions, and media coverage so you can measure your PR impact.',
+                icon: TrendingUp,
               },
               {
-                name: 'Custom',
-                price: 'Contact',
-                color: 'from-green-500 to-green-600',
-                features: ['Custom Solutions', 'Tailored Distribution', 'Personal Account Manager', 'Custom Reporting'],
+                title: 'Editorial Support',
+                description: 'Our in-house editorial team reviews every release to ensure it meets professional media standards before distribution.',
+                icon: FileText,
               },
-            ].map((plan, index) => (
-              <div
-                key={index}
-                className={`relative rounded-2xl bg-white p-6 shadow-lg transition-all hover:shadow-xl ${
-                  plan.popular ? 'ring-2 ring-[#D1512D] scale-105' : ''
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="rounded-full bg-[#D1512D] px-3 py-1 text-xs font-semibold text-white">
-                      Most Popular
-                    </span>
+              {
+                title: 'Dedicated PR Support',
+                description: 'A dedicated account manager guides you through every step — from writing to distribution to follow-up coverage.',
+                icon: Headphones,
+              },
+            ].map((item, index) => (
+              <div key={index} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg transition-all hover:shadow-xl">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-[#F5E8E4] p-3">
+                    <item.icon className="h-6 w-6 text-[#411530]" />
                   </div>
-                )}
-                <h3 className={`text-lg font-bold bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`}>
-                  {plan.name}
-                </h3>
-                <div className="mt-2">
-                  <span className="text-3xl font-bold text-[#411530]">{plan.price}</span>
-                  {plan.price !== 'Contact' && <span className="text-gray-600">/release</span>}
+                  <h3 className="text-lg font-semibold text-[#411530]">{item.title}</h3>
                 </div>
-                <ul className="mt-6 space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-[#D1512D]" />
-                      <span className="text-sm text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/pricing"
-                  className={`mt-6 block w-full rounded-full bg-gradient-to-r ${plan.color} py-3 text-center text-sm font-semibold text-white transition-all hover:opacity-90`}
-                >
-                  {plan.price === 'Contact' ? 'Contact Sales' : 'Get Started'}
-                </Link>
+                <p className="mt-4 text-sm leading-7 text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
@@ -328,38 +295,21 @@ export function PressReleaseHome({ primaryTask, posts, supportTasks }: PressRele
               Discover recent press releases and news from our distribution network
             </p>
           </div>
-          
+
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredPosts.map((post, index) => (
-              <div key={post.id} className="group rounded-2xl bg-white p-6 shadow-lg transition-all hover:shadow-xl">
-                <div className="relative h-32 overflow-hidden rounded-lg bg-gradient-to-br from-[#F5C7A9] to-[#F5E8E4]">
-                  <ContentImage
-                    src={post.media?.[0]?.url || '/placeholder.svg?height=200&width=300'}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="mt-4 text-lg font-semibold text-[#411530] group-hover:text-[#D1512D]">
-                  {post.title}
-                </h3>
-                <p className="mt-2 text-sm text-gray-600 line-clamp-3">
-                  {post.summary || 'Read the latest press release and news from our distribution network.'}
-                </p>
-                <Link
-                  href={`/articles/${post.slug}`}
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#411530] hover:text-[#D1512D]"
-                >
-                  Read More
-                  <ArrowRight className="h-3 w-3" />
-                </Link>
-              </div>
+            {featuredPosts.map((post) => (
+              <TaskPostCard
+                key={post.id}
+                post={post}
+                href={`/updates/${post.slug}`}
+                taskKey="mediaDistribution"
+              />
             ))}
           </div>
-          
+
           <div className="mt-12 text-center">
             <Link
-              href="/articles"
+              href="/updates"
               className="inline-flex items-center gap-2 rounded-full border-2 border-[#411530] bg-white px-8 py-3 text-sm font-semibold text-[#411530] transition-all hover:bg-[#F5E8E4]"
             >
               View All Press Releases

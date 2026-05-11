@@ -51,9 +51,6 @@ export function PressReleaseNavbar() {
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex min-w-0 items-center gap-4">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-[#411530]/20 bg-[#F5E8E4] p-1.5">
-              <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} width="48" height="48" className="h-full w-full object-contain" />
-            </div>
             <div className="min-w-0 hidden sm:block">
               <span className="block truncate text-xl font-bold text-[#411530]">{SITE_CONFIG.name}</span>
               <span className="block text-[10px] uppercase tracking-[0.24em] text-[#D1512D] opacity-80">{siteContent.navbar.tagline}</span>
